@@ -59,6 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 					.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()// don't create session
 					.antMatchers("/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs", "/webjars/**", "/assets/**").permitAll()
 					.antMatchers("/websocket/**").permitAll()
+					.antMatchers("/druid/**").permitAll()
 					.antMatchers("/auth/**").permitAll().anyRequest().authenticated();
 		httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 		httpSecurity.headers().frameOptions().sameOrigin().cacheControl();// disable page caching
