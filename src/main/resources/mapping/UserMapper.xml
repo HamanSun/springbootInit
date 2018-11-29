@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jjsunw.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="cn.jjsunw.model.User">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="large_head_portrait" jdbcType="VARCHAR" property="largeHeadPortrait" />
+    <result column="small_head_portrait" jdbcType="VARCHAR" property="smallHeadPortrait" />
+    <result column="enable" jdbcType="BIT" property="enable" />
+    <result column="last_pwd_reset_time" jdbcType="TIMESTAMP" property="lastPwdResetTime" />
+    <collection property="roles" ofType="cn.jjsunw.model.Role">
+    	<result column="code" jdbcType="VARCHAR" property="code" />
+    </collection>
+  </resultMap>
+  <select id="findByUsername" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	SELECT
+		u.id,
+		u.username,
+		u.password,
+		u.email,
+		u.ENABLE,
+		u.large_head_portrait,
+		u.small_head_portrait,
+		u.last_pwd_reset_time,
+		r.CODE 
+	FROM
+		t_user u
+		LEFT JOIN t_user_role ur ON u.id = ur.user_id
+		LEFT JOIN t_role r ON ur.role_id = r.id 
+	WHERE
+		u.username = #{username, jdbcType=VARCHAR};
+  </select>
+</mapper>

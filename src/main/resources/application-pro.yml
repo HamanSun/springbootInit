@@ -1,0 +1,9 @@
+server:
+  ssl:
+    key-store: classpath:cert/1530409569397.pfx
+    key-store-password: 1530409569397
+    keyAlias: alias
+    keyStoreType: PKCS12
+  tomcat:
+    max-threads: 100
+    uri-encoding: UTF-8

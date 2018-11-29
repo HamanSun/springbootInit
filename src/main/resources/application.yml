@@ -1,0 +1,63 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /springboot205
+spring:
+  profiles:
+    active: dev
+  devtools:
+    livereload:
+      enabled: true
+  jmx:
+    default-domain: /springboot205
+  mail:
+    default-encoding: UTF-8
+    from: ''
+    host: email-smtp.eu-west-1.amazonaws.com
+    password: ''
+    port: 25
+    protocol: smtp
+    username: ''
+  
+  thymeleaf:
+    cache: false
+    cache-period: 0
+    mode: LEGACYHTML5
+    template:
+      cache: false
+api:
+  ocr:
+    domain:
+      auth: '*'
+      name: Testapp
+    identity:
+      idcard: '*'
+aws:
+  accessKey: ''
+  esgBucket: ''
+  secretKey: ''
+cron:
+  job:
+    task1: 0 04 14 * * ?
+jwt:
+  expiration: 604800
+  header: Authorization
+  secret: mySecret
+  route: 
+    authentication: 
+      path: /auth
+      refresh: /refresh
+loc:
+  web:
+    springmvc:
+      cors:
+        enabled: true
+alipay:
+  notify:
+    url: https://blog.52itstyle.com/alipay/pay
+unionpay:
+  notify:
+    url: https://blog.52itstyle.com/union/pay
+wexinpay:
+  notify:
+    url: https://blog.52itstyle.com/weixin/pay
