@@ -4,9 +4,15 @@ import cn.jjsunw.annotation.SysLogger;
 import cn.jjsunw.common.Result;
 import cn.jjsunw.common.ResultGenerator;
 import cn.jjsunw.model.User;
+import cn.jjsunw.mq.email.Email;
+import cn.jjsunw.mq.email.producer.EmailProducer;
 import cn.jjsunw.service.UserService;
+
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.annotations.*;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +30,9 @@ import java.util.List;
 public class UserController {
     @Resource
     private UserService userService;
+    
+    @Autowired
+    private EmailProducer emailProducer;
 
     @PostMapping
     @ApiOperation("New 1 User")
@@ -67,5 +76,17 @@ public class UserController {
         List<User> list = userService.findAll();
         PageInfo<User> pageInfo = new PageInfo<User>(list);
         return ResultGenerator.genSuccessResult(pageInfo);
+    }
+    
+    @PostMapping("/sendEmail")
+    public Result sendEmail(@RequestBody Email email) {
+    	try {
+    		String message = JSON.toJSONString(email);
+    		System.out.println(message);
+    		emailProducer.sendEmailMsg(message);
+		} catch (Exception e) {
+			return ResultGenerator.genFailResult("send email failure.");
+		}
+    	return ResultGenerator.genSuccessResult().setMessage("send email successful.");
     }
 }

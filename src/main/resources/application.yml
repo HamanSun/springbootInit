@@ -12,12 +12,14 @@ spring:
     default-domain: /springboot205
   mail:
     default-encoding: UTF-8
+    host: smtp.163.com
     from: ''
-    host: email-smtp.eu-west-1.amazonaws.com
-    password: ''
-    port: 25
-    protocol: smtp
-    username: ''
+    username: xxx@163.com
+    password: xxxxxx
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
   
   thymeleaf:
     cache: false
