@@ -1,4 +1,4 @@
-package cn.jjsunw.utils;
+package cn.jjsunw.utils.file;
 
 import java.io.File;
 import java.io.IOException;

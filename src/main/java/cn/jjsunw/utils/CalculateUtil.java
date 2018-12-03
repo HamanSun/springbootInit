@@ -1,11 +1,10 @@
 package cn.jjsunw.utils;
 
-import java.lang.reflect.Field;
 import java.math.BigDecimal;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class CommonUtil {
+public class CalculateUtil {
 	/**
 	 * 除法
 	 */
@@ -159,29 +158,4 @@ public class CommonUtil {
 		return s;
 	}
 
-	/**
-	 * 判断实体类所有属性值为null
-	 * 
-	 * @param obj
-	 * @return
-	 */
-	public static boolean isAllFieldNull(Object obj) {
-		Class stuCla = (Class) obj.getClass();
-		Field[] fs = stuCla.getDeclaredFields();
-		boolean flag = true;
-		for (Field f : fs) {
-			f.setAccessible(true);
-			Object val = null;
-			try {
-				val = f.get(obj);
-			} catch (IllegalArgumentException | IllegalAccessException e) {
-				e.printStackTrace();
-			}
-			if (val != null) {
-				flag = false;
-				break;
-			}
-		}
-		return flag;
-	}
 }

@@ -1,4 +1,4 @@
-package cn.jjsunw.utils;
+package cn.jjsunw.utils.file;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -82,17 +82,17 @@ public class CSVUtils {
 	public static String createCSVFile(List<Object[]> rows, HttpServletRequest req, String folderName)
 			throws FileNotFoundException {
 		// initialize root folder
-		FileUploadUtils.init(req);
+		FileUploadUtil.init(req);
 		// 文件输出流
 		BufferedWriter fileOutputStream = null;
 
 		try {
-			String fileFolder = FileUploadUtils.PRO_RESOURCE_FOLDER_PATH;
+			String fileFolder = FileUploadUtil.PRO_RESOURCE_FOLDER_PATH;
 			if(!StringUtils.isBlank(folderName)) {
 				fileFolder = fileFolder + File.separator + folderName;
 			}
 			// 含文件名的全路径
-			String filePath = fileFolder + File.separator + folderName + FileUploadUtils.DEFAULT_CONCAT + FileUploadUtils.getFormatDate() + ".csv";
+			String filePath = fileFolder + File.separator + folderName + FileUploadUtil.DEFAULT_CONCAT + FileUploadUtil.getFormatDate() + ".csv";
 			File file = new File(filePath);
 			if (!file.getParentFile().exists()) { // 如果父目录不存在，创建父目录
 				file.getParentFile().mkdirs();

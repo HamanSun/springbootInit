@@ -1,4 +1,4 @@
-package cn.jjsunw.utils;
+package cn.jjsunw.utils.file;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import lombok.extern.slf4j.Slf4j;
 @Slf4j
-public class FileUploadUtils {
+public class FileUploadUtil {
 
 	public static String PRO_RESOURCE_FOLDER_PATH = "";
 	public static final String RESOURCE_FOLDER_NAME = "springbootInitializeMedia";
@@ -57,7 +57,7 @@ public class FileUploadUtils {
 	
 	public static String getMediaPath(HttpServletRequest req, String diskPath) {
 		StringBuilder sb = new StringBuilder();
-		String storagePath = File.separator + diskPath.substring(diskPath.indexOf(FileUploadUtils.RESOURCE_FOLDER_NAME));
+		String storagePath = File.separator + diskPath.substring(diskPath.indexOf(FileUploadUtil.RESOURCE_FOLDER_NAME));
 		String host = req.getServerName();
 		int port = req.getServerPort();
 		sb.append(host);
@@ -69,6 +69,6 @@ public class FileUploadUtils {
 	}
 
 	public static void main(String[] args) throws FileNotFoundException {
-		System.out.println(FileUploadUtils.PRO_RESOURCE_FOLDER_PATH);
+		System.out.println(FileUploadUtil.PRO_RESOURCE_FOLDER_PATH);
 	}
 }

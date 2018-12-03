@@ -1,4 +1,4 @@
-package cn.jjsunw.utils;
+package cn.jjsunw.utils.mail;
 
 import java.io.IOException;
 import java.time.LocalDate;
