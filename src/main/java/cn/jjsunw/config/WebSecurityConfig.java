@@ -60,6 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 					.antMatchers("/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs", "/webjars/**", "/assets/**").permitAll()
 					.antMatchers("/websocket/**").permitAll()
 					.antMatchers("/druid/**").permitAll()
+					.antMatchers("/actuator/**").permitAll()
 					.antMatchers("/auth/**").permitAll().anyRequest().authenticated();
 		httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 		httpSecurity.headers().frameOptions().sameOrigin().cacheControl();// disable page caching
