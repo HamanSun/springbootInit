@@ -1,28 +1,8 @@
 package cn.jjsunw.controller;
 
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.List;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.csvreader.CsvReader;
-import com.csvreader.CsvWriter;
-
-import cn.jjsunw.common.Result;
-import cn.jjsunw.common.ResultGenerator;
-import cn.jjsunw.utils.ExcelUtils;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
 
 @Api(tags="Data handler via file API.")
 @RestController

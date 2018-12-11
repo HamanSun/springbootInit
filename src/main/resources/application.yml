@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 9000
   servlet:
     context-path: /springboot205
 spring:
@@ -20,13 +20,6 @@ spring:
       mail.smtp.auth: true
       mail.smtp.starttls.enable: true
       mail.smtp.starttls.required: true
-  
-  thymeleaf:
-    cache: false
-    cache-period: 0
-    mode: LEGACYHTML5
-    template:
-      cache: false
 api:
   ocr:
     domain:

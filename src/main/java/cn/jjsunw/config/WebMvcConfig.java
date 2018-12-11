@@ -1,7 +1,5 @@
 package cn.jjsunw.config;
 
-import static org.hamcrest.CoreMatchers.instanceOf;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -141,7 +139,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 
 	private ApiInfo apiInfo() {
 		return new ApiInfoBuilder().title("springboot2.0.5").description("Initialization project based on springboot2.0.5")
-				.termsOfServiceUrl("http://blog.52itstyle.com")
+				.termsOfServiceUrl(".............pending...........")
 				.contact(new Contact("sunjunjie ", null, "3083996241@qq.com")).version("1.0").build();
 	}
 

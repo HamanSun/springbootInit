@@ -7,7 +7,7 @@
 	<groupId>cn.jjsunw</groupId>
 	<artifactId>springbootInitialize</artifactId>
 	<version>0.0.1</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>springbootInitialize</name>
 	<description>spring boot initialize project</description>
@@ -107,14 +107,9 @@
 			<version>1.2.3</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-		<!-- commons-configuration -->
-		<dependency>
-			<groupId>commons-configuration</groupId>
-			<artifactId>commons-configuration</artifactId>
-			<version>1.10</version>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>22.0</version>
 		</dependency>
 		<!-- java csv jar -->
 		<dependency>

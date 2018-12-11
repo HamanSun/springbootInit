@@ -7,12 +7,12 @@ spring:
     url: jdbc:mysql://localhost:3306/sblearning?useSSL=false&characterEncoding=utf8
     username: root
     password: 1234
-    data-username: root
-    data-password: 1234
-    data:
-    - classpath:database/initialize/initData.sql
-    continue-on-error: true
-    initialization-mode: always
+    #data-username: root
+    #data-password: 1234
+    #data:
+    #- classpath:database/initialize/initData.sql
+    #continue-on-error: true
+    #initialization-mode: always
     druid:  
       # 连接池的配置信息
       # 初始化大小，最小，最大
@@ -75,8 +75,8 @@ spring:
     virtual-host: /
 logging:
   level:
-    org.springframework.web: info
-    org.springframework.security: info
+    org.springframework.web: debug
+    org.springframework.security: debug
     com.springboot.auth: info
     org.apache.ibatis: info
     java.sql.PreparedStatement: info

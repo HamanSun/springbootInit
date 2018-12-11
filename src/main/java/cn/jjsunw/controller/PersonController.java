@@ -1,26 +1,9 @@
 package cn.jjsunw.controller;
-import cn.jjsunw.common.Result;
-import cn.jjsunw.common.ResultGenerator;
-import cn.jjsunw.utils.CSVUtils;
-import io.swagger.annotations.*;
-import lombok.extern.slf4j.Slf4j;
-
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import io.swagger.annotations.Api;
+import lombok.extern.slf4j.Slf4j;
 
 /**
 * Created by jjsunw on 2018/04/24.

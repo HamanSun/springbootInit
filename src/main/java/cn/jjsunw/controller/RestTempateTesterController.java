@@ -16,8 +16,8 @@ import com.alibaba.fastjson.JSONObject;
 
 import cn.jjsunw.common.Result;
 import cn.jjsunw.common.ResultGenerator;
-import cn.jjsunw.utils.FileUploadUtils;
 import cn.jjsunw.utils.RestTemplateUtils;
+import cn.jjsunw.utils.file.FileUploadUtil;
 
 @RestController
 @RequestMapping("/resttemplate")
@@ -30,7 +30,7 @@ public class RestTempateTesterController {
 		headers.put("side", side);
 		
 		try {
-			String filePath = FileUploadUtils.transferFile(System.currentTimeMillis(), "idcard", file, req);
+			String filePath = FileUploadUtil.transferFile(System.currentTimeMillis(), "idcard", file, req);
 			body.put("file", RestTemplateUtils.FILE_MARK_PREFIX + filePath);
 			ResponseEntity<JSONObject> response = RestTemplateUtils.reqCardIdentifyApi(headers, body);
 			return ResultGenerator.genSuccessResult(response);
