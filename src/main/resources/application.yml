@@ -56,3 +56,5 @@ unionpay:
 wexinpay:
   notify:
     url: https://blog.52itstyle.com/weixin/pay
+web: 
+  upload-path: c:/isoftstone/upload/map

@@ -61,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 					.antMatchers("/websocket/**").permitAll()
 					.antMatchers("/druid/**").permitAll()
 					.antMatchers("/actuator/**").permitAll()
-					.antMatchers("/auth/**").permitAll().anyRequest().authenticated();
+					.antMatchers("/auth/**").permitAll().antMatchers("/**").permitAll().anyRequest().authenticated();
 		httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 		httpSecurity.headers().frameOptions().sameOrigin().cacheControl();// disable page caching
 	}

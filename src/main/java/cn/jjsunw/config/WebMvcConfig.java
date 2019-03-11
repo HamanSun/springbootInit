@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.ClientHttpRequestFactory;
@@ -20,7 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.alibaba.fastjson.JSON;
 
@@ -43,7 +44,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 @Slf4j
-public class WebMvcConfig extends WebMvcConfigurationSupport {
+public class WebMvcConfig implements WebMvcConfigurer {
+	
+	@Value("${web.upload-path}")
+	private String mapFolder;
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**").allowedOrigins("*").allowCredentials(true).allowedHeaders("*")
@@ -97,10 +101,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+		registry.addResourceHandler("/map").addResourceLocations("file:" + mapFolder);
 		registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
 		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
 		registry.addResourceHandler("/database/initialize/**").addResourceLocations("classpath:/database/initialize/");
-		super.addResourceHandlers(registry);
 	}
 
 	@Bean
